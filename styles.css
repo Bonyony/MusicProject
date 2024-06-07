@@ -1,0 +1,26 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.output {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.chord-display {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    flex-direction: column;
+}
+.chord-display h1 {
+    display: flex;
+    margin:  25px auto;
+    justify-content: center;
+}
