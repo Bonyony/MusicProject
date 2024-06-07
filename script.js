@@ -114,3 +114,54 @@ const majorChords = [
         chordNotes: ['(G#4 C4 D#4)/', '(C4 D#4 G#5)/', '(D#4 G#5 C5)/'] 
     },
 ]
+
+const majorScales = [
+  {
+    key: 'A',
+    scaleNotes: ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#']
+  },
+  {
+    key: 'A#',
+    scaleNotes: ['A#', 'C', 'D', 'D#', 'F', 'G', 'A']
+  },
+  {
+    key: 'B',
+    scaleNotes: ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#']
+  },
+  {
+    key: 'C',
+    scaleNotes: ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+  },
+  {
+    key: 'C#',
+    scaleNotes: ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'C']
+  },
+  {
+    key: 'D',
+    scaleNotes: ['D', 'E', 'F#', 'G', 'A', 'B', 'C#']
+  },
+  {
+    key: 'D#',
+    scaleNotes: ['D#', 'F', 'G', 'G#', 'A#', 'C', 'D']
+  },
+  {
+    key: 'E',
+    scaleNotes: ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#']
+  },
+  {
+    key: 'F',
+    scaleNotes: ['F', 'G', 'A', 'A#', 'C', 'D', 'E']
+  },
+  {
+    key: 'F#',
+    scaleNotes: ['F#', 'G#', 'A#', 'B', 'C#', 'D#', 'F']
+  },
+  {
+    key: 'G',
+    scaleNotes: ['G', 'A', 'B', 'C', 'D', 'E', 'F#']
+  },
+  {
+    key: 'G#',
+    scaleNotes: ['G#', 'A#', 'C', 'C#', 'D#', 'F', 'G']
+  },
+]
