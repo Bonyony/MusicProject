@@ -25,10 +25,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Sheet Music Application</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                 <a class="nav-link" href="#">Features</a>
@@ -39,9 +36,48 @@
         </div>
     </nav>
 
-    <!-- User Interactions -->
+    <!-- User Interactions (Buttons) -->
     <section class="chord-display">
         <h1>Choose a Chord to display!</h1>  
+        <div class="container btn-container">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Key
+                </button>
+                <ul id="keyInput" class="dropdown-menu">
+                  <li value="A"><a class="dropdown-item" >A</a></li>
+                  <li value="A#"><a class="dropdown-item" >A#/Bb</a></li>
+                  <li value="B"><a class="dropdown-item" >B</a></li>
+                  <li value="C"><a class="dropdown-item" >C</a></li>
+                  <li value="C#"><a class="dropdown-item" >C#/Db</a></li>
+                  <li value="D"><a class="dropdown-item" >D</a></li>
+                  <li value="D#"><a class="dropdown-item" >D#/Eb</a></li>
+                  <li value="E"><a class="dropdown-item" >E</a></li>
+                  <li value="F"><a class="dropdown-item" >F</a></li>
+                  <li value="F#"><a class="dropdown-item" >F#/Gb</a></li>
+                  <li value="G"><a class="dropdown-item" >G</a></li>
+                  <li value="G#"><a class="dropdown-item" >G#/Ab</a></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Chord (Scale Degree)
+                </button>
+                <ul id="scaleDegree" class="dropdown-menu">
+                  <li value="1"><a class="dropdown-item" >1st</a></li>
+                  <li value="2"><a class="dropdown-item" >2nd</a></li>
+                  <li value="3"><a class="dropdown-item" >3rd</a></li>
+                  <li value="4"><a class="dropdown-item" >4th</a></li>
+                  <li value="5"><a class="dropdown-item" >5th</a></li>
+                  <li value="6"><a class="dropdown-item" >6th</a></li>
+                  <li value="7"><a class="dropdown-item" >7th</a></li>
+                </ul>
+              </div>
+        </div>
+        <div class="container border border-black rounded p-2 d-flex justify-content-evenly bg-dark-subtle input-display">
+            <h2 class="" id="key-display">Key: </h2>
+            <h2 class="" id="chord-display">Chord: </h2>
+        </div>
     
     <!-- Div where the scores will be output -->
         <div class="output" id="output"></div>

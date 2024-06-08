@@ -1,10 +1,14 @@
+// This function will render the chords
 // Destructure from VexFlow
 const {
     Renderer,
     Stave,
+    Accidental,
     StaveNote,
+    Beam,
     Voice,
-    Formatter
+    Formatter,
+    Dot
   } = Vex.Flow;
   
   // Create an SVG renderer
@@ -22,9 +26,9 @@ const {
   // Create the notes
   const notes = [
     new StaveNote({
-      keys: ['c/5'],
+      keys: ['c#/5'],
       duration: 'q'
-    }),
+    }).addModifier(new Accidental('#')),
     new StaveNote({
       keys: ['d/4'],
       duration: 'q'
@@ -39,10 +43,16 @@ const {
     }),
   ];
   
-  const notes2 = [new StaveNote({
-    keys: ['c/4'],
-    duration: 'w'
-  })];
+  const notes2 = [
+    new StaveNote({
+      keys: ['c/4'],
+      duration: 'h'
+    }),
+    new StaveNote({
+      keys: ['g/3'],
+      duration: 'h'
+    })
+    ];
   // Create a voice in 4/4 and add above notes
   const voices = [
     new Voice({
@@ -60,6 +70,8 @@ const {
   voices.forEach(function(v) {
     v.draw(context, stave);
   });
+
+
 
 // My Main Code
 
@@ -165,3 +177,6 @@ const majorScales = [
     scaleNotes: ['G#', 'A#', 'C', 'C#', 'D#', 'F', 'G']
   },
 ]
+
+const keyInput = document.getElementById("keyInput");
+const scaleDegree = document.getElementById("scaleDegree");
