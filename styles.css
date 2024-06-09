@@ -7,44 +7,43 @@
 }
 
 label select {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-
 .btn-container {
-    display: flex;
-    margin: auto;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .btn {
-    margin: auto 2.5px;
+  margin: auto 2.5px;
 }
 
 .input-display {
-    display: flex;
-    margin: 15px auto 0 auto;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  margin: 15px auto 0 auto;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .output {
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .chord-display {
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  flex-direction: column;
 }
 .chord-display h1 {
-    display: flex;
-    margin:  25px auto;
-    justify-content: center;
+  display: flex;
+  margin: 25px auto;
+  justify-content: center;
 }
