@@ -180,3 +180,16 @@ const majorScales = [
 
 const keyInput = document.getElementById("keyInput");
 const scaleDegree = document.getElementById("scaleDegree");
+const keyDisplay = document.getElementById("key-display");
+const chordDisplay = document.getElementById("chord-display");
+
+const generateBtn = document.getElementById("generate-btn");
+generateBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  displayInputs();
+  console.log(keyInput);
+})
+
+const displayInputs = () => {
+  keyDisplay.innerText = `Key: ${keyInput.value}`;
+}
