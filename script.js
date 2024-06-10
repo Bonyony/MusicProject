@@ -12,7 +12,9 @@ const context = renderer.getContext();
 // Create a stave of width 400 at position 10, 40 on the canvas.
 const stave = new Stave(10, 40, 400);
 // Add a clef and time signature.
-stave.addClef("treble").addTimeSignature("4/4");
+stave.addClef("treble");
+// .addTimeSignature("4/4");
+
 // Connect it to the rendering context and draw!
 stave.setContext(context).draw();
 // Create the notes
@@ -168,6 +170,7 @@ const majorScales = [
   },
 ];
 
+// Inputs and displays
 const keyInput = document.getElementById("keyInput");
 const scaleDegree = document.getElementById("scaleDegree");
 const keyDisplay = document.getElementById("key-display");
@@ -177,10 +180,59 @@ const generateBtn = document.getElementById("generate-btn");
 generateBtn.addEventListener("click", (e) => {
   e.preventDefault();
   displayInputs();
-  console.log(keyInput);
+  console.log(keyInput.value);
+  console.log(scaleDegree.value);
 });
 
+// display the user inputs visually
 const displayInputs = () => {
   keyDisplay.innerText = `Key: ${keyInput.value}`;
-  // use chord display here after parsing the array for the sheet music display
+  /*
+  THE chordDisplay.innerText IS ONLY A PLACEHOLDER FOR NOW
+  TO SHOW THE VALUE EXISTS
+  */
+  chordDisplay.innerText = `Chord: ${scaleDegree.value}`;
+  findNotes(majorScales);
+  //console.log(majorScales[11]);
+};
+
+// match the input value to the proper scale key
+const findNotes = (scale) => {
+  let userScale;
+  for (let i = 0; i <= 11; i++) {
+    if (scale[i].key === keyInput.value) {
+      userScale = scale[i].scaleNotes;
+    }
+  }
+  console.log(userScale);
+  findChord(userScale);
+};
+
+//destructure the notes into defined chords
+const findChord = (notes) => {
+  let [one, two, three, four, five, six, seven] = notes;
+  console.log(four);
+  let chord;
+  if (scaleDegree.value == 1) {
+    chord = [one, three, five];
+  }
+  if (scaleDegree.value == 2) {
+    chord = [two, four, six];
+  }
+  if (scaleDegree.value == 3) {
+    chord = [three, five, seven];
+  }
+  if (scaleDegree.value == 4) {
+    chord = [four, six, one];
+  }
+  if (scaleDegree.value == 5) {
+    chord = [five, seven, two];
+  }
+  if (scaleDegree.value == 6) {
+    chord = [six, one, three];
+  }
+  if (scaleDegree.value == 7) {
+    chord = [seven, two, four];
+  }
+  console.log(chord);
 };
