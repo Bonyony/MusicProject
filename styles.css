@@ -30,7 +30,7 @@ label select {
 }
 
 .output {
-  display: flex;
+  display: grid;
   margin: auto;
   justify-content: center;
   align-items: center;
