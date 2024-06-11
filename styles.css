@@ -47,3 +47,12 @@ label select {
   margin: 25px auto;
   justify-content: center;
 }
+.chord-display p {
+  display: flex;
+  margin: 25px auto 0;
+  justify-content: center;
+  padding: 5px;
+  background-color: rgb(237, 206, 129);
+  border-radius: 5px;
+  border: black 1px solid;
+}

@@ -55,6 +55,7 @@ const keyInput = document.getElementById("keyInput");
 const scaleDegree = document.getElementById("scaleDegree");
 const keyDisplay = document.getElementById("key-display");
 const chordDisplay = document.getElementById("chord-display");
+const notesDisplay = document.getElementById("notes-display");
 
 const output = document.getElementById("output");
 
@@ -85,6 +86,7 @@ const displayInputs = () => {
 
   let readyChord = chord.map(octivize);
   console.log(readyChord);
+  notesDisplay.innerText = `Notes: ${chord.join("-")}`;
   showChord(readyChord);
 };
 
@@ -153,7 +155,7 @@ const showChord = (userChord) => {
   const div = document.getElementById("output");
   const renderer = new Renderer(div, Renderer.Backends.SVG);
   // Configure the rendering context.
-  renderer.resize(200, 150);
+  renderer.resize(200, 200);
   const context = renderer.getContext();
   // Create a stave of width 400 at position 10, 40 on the canvas.
   const stave = new Stave(10, 40, 175);
