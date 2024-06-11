@@ -1,70 +1,3 @@
-// This function will render the chords
-// Destructure from VexFlow
-const { Renderer, Stave, Accidental, StaveNote, Beam, Voice, Formatter, Dot } =
-  Vex.Flow;
-
-// Create an SVG renderer
-const div = document.getElementById("output");
-const renderer = new Renderer(div, Renderer.Backends.SVG);
-// Configure the rendering context.
-renderer.resize(500, 500);
-const context = renderer.getContext();
-// Create a stave of width 400 at position 10, 40 on the canvas.
-const stave = new Stave(10, 40, 400);
-// Add a clef and time signature.
-stave.addClef("treble");
-// .addTimeSignature("4/4");
-
-// Connect it to the rendering context and draw!
-stave.setContext(context).draw();
-// Create the notes
-const notes = [
-  new StaveNote({
-    keys: ["C#/5"],
-    duration: "q",
-  }).addModifier(new Accidental("#")),
-  new StaveNote({
-    keys: ["D/4"],
-    duration: "q",
-  }),
-  new StaveNote({
-    keys: ["B/4"],
-    duration: "qr",
-  }),
-  new StaveNote({
-    keys: ["C/4", "E/4", "G/4"],
-    duration: "q",
-  }),
-];
-
-const notes2 = [
-  new StaveNote({
-    keys: ["C/3"],
-    duration: "h",
-  }),
-  new StaveNote({
-    keys: ["G/2"],
-    duration: "h",
-  }),
-];
-// Create a voice in 4/4 and add above notes
-const voices = [
-  new Voice({
-    num_beats: 4,
-    beat_value: 4,
-  }).addTickables(notes),
-  new Voice({
-    num_beats: 4,
-    beat_value: 4,
-  }).addTickables(notes2),
-];
-// Format and justify the notes to 400 pixels.
-new Formatter().joinVoices(voices).format(voices, 350);
-// Render voices.
-voices.forEach(function (v) {
-  v.draw(context, stave);
-});
-
 // My Main Code
 
 // Array of standard major chords
@@ -193,7 +126,6 @@ const displayInputs = () => {
   */
   chordDisplay.innerText = `Chord: ${scaleDegree.value}`;
   findNotes(majorScales);
-  //console.log(majorScales[11]);
 };
 
 // match the input value to the proper scale key
@@ -208,11 +140,12 @@ const findNotes = (scale) => {
   findChord(userScale);
 };
 
+let chord;
 //destructure the notes into defined chords
 const findChord = (notes) => {
   let [one, two, three, four, five, six, seven] = notes;
   console.log(four);
-  let chord;
+
   if (scaleDegree.value == 1) {
     chord = [one, three, five];
   }
@@ -235,4 +168,72 @@ const findChord = (notes) => {
     chord = [seven, two, four];
   }
   console.log(chord);
+  return chord;
 };
+
+// This function will render the chords
+// Destructure from VexFlow
+const { Renderer, Stave, Accidental, StaveNote, Beam, Voice, Formatter, Dot } =
+  Vex.Flow;
+
+// Create an SVG renderer
+const div = document.getElementById("output");
+const renderer = new Renderer(div, Renderer.Backends.SVG);
+// Configure the rendering context.
+renderer.resize(500, 500);
+const context = renderer.getContext();
+// Create a stave of width 400 at position 10, 40 on the canvas.
+const stave = new Stave(10, 40, 400);
+// Add a clef and time signature.
+stave.addClef("treble");
+// .addTimeSignature("4/4");
+
+// Connect it to the rendering context and draw!
+stave.setContext(context).draw();
+// Create the notes
+const notes = [
+  new StaveNote({
+    keys: ["C#/5"],
+    duration: "q",
+  }).addModifier(new Accidental("#")),
+  new StaveNote({
+    keys: ["D/4"],
+    duration: "q",
+  }),
+  new StaveNote({
+    keys: ["B/4"],
+    duration: "qr",
+  }),
+  new StaveNote({
+    keys: ["C/4", "E/4", "G/4"],
+    duration: "q",
+  }),
+];
+
+const notes2 = [
+  new StaveNote({
+    keys: ["C/3"],
+    duration: "h",
+  }),
+  new StaveNote({
+    keys: ["G/2"],
+    duration: "h",
+  }),
+];
+// Create a voice in 4/4 and add above notes
+const voices = [
+  new Voice({
+    num_beats: 4,
+    beat_value: 4,
+  }).addTickables(notes),
+  new Voice({
+    num_beats: 4,
+    beat_value: 4,
+  }).addTickables(notes2),
+];
+// Format and justify the notes to 400 pixels.
+new Formatter().joinVoices(voices).format(voices, 350);
+// Render voices.
+voices.forEach(function (v) {
+  v.draw(context, stave);
+});
