@@ -38,7 +38,7 @@ const majorScales = [
   },
   {
     key: "Gb",
-    scaleNotes: ["Gb", "Ab", "Bb", "B", "Db", "Eb", "F"],
+    scaleNotes: ["Gb", "Ab", "Bb", "Cb", "Db", "Eb", "F"],
   },
   {
     key: "G",
@@ -75,7 +75,7 @@ const resetDisplay = () => {
 
 // display the user inputs visually
 const displayInputs = () => {
-  keyDisplay.innerText = `Key: ${keyInput.value}`;
+  keyDisplay.innerText = `Key: ${keyInput.value} Major`; // will need to be updated once Maj/Min selector is implemented
   findNotes(majorScales);
   let readyChord = chord.map(octivize);
   notesDisplay.innerText = `Notes: ${chord.join("-")}`;
@@ -136,18 +136,17 @@ const findChord = (notes) => {
 const prepareChordDisplay = () => {
   let holder = Number(scaleDegree.value);
   let sig;
-  console.log(holder);
   if (holder === 1 || holder === 4 || holder === 5) {
-    sig = "Maj";
+    sig = "Major";
   } else if (holder === 2 || holder === 3 || holder === 6) {
-    sig = "Min";
+    sig = "Minor";
   } else {
-    sig = "Dim";
+    sig = "Diminished";
   }
   return `Chord: ${chord[0]} ${sig}`;
 };
 
-// This function will render the chords
+// This function will render the chords with vexFlow
 // Destructure from VexFlow
 const {
   Renderer,

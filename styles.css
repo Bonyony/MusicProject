@@ -56,3 +56,9 @@ label select {
   border-radius: 5px;
   border: black 1px solid;
 }
+
+/* features.html styles */
+.features {
+  margin: 25px auto;
+  width: 60%;
+}
