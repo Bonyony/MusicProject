@@ -64,7 +64,6 @@ generateBtn.addEventListener("click", (e) => {
   e.preventDefault();
   resetDisplay();
   displayInputs();
-
   console.log(keyInput.value);
   console.log(scaleDegree.value);
 });
@@ -77,19 +76,18 @@ const resetDisplay = () => {
 // display the user inputs visually
 const displayInputs = () => {
   keyDisplay.innerText = `Key: ${keyInput.value}`;
-  /*
-  THE chordDisplay.innerText IS ONLY A PLACEHOLDER FOR NOW
-  TO SHOW THE VALUE EXISTS
-  */
-  chordDisplay.innerText = `Chord: ${scaleDegree.value}`;
   findNotes(majorScales);
-
   let readyChord = chord.map(octivize);
-  console.log(readyChord);
   notesDisplay.innerText = `Notes: ${chord.join("-")}`;
   showChord(readyChord);
+  chordDisplay.innerText = prepareChordDisplay();
 };
 
+/*
+ function to prepare the chord for the SVG view, may need to be changed
+ as this only returns notes within the same octave, and I may want the octaves to 
+ be reactive and climb or fall +/- one octave in the future
+*/
 const octivize = (el) => {
   return el + "/4";
 };
@@ -110,8 +108,6 @@ let chord;
 //destructure the notes into defined chords
 const findChord = (notes) => {
   let [one, two, three, four, five, six, seven] = notes;
-  console.log(four);
-
   if (scaleDegree.value == 1) {
     chord = [one, three, five];
   }
@@ -134,6 +130,21 @@ const findChord = (notes) => {
     chord = [seven, two, four];
   }
   console.log(chord);
+};
+
+// chord display function
+const prepareChordDisplay = () => {
+  let holder = Number(scaleDegree.value);
+  let sig;
+  console.log(holder);
+  if (holder === 1 || holder === 4 || holder === 5) {
+    sig = "Maj";
+  } else if (holder === 2 || holder === 3 || holder === 6) {
+    sig = "Min";
+  } else {
+    sig = "Dim";
+  }
+  return `Chord: ${chord[0]} ${sig}`;
 };
 
 // This function will render the chords
