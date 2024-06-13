@@ -97,7 +97,7 @@
         </div>
       </div>
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button id="generate-btn" class="btn btn-outline-success">
+        <button id="generate-btn" class="btn btn-outline-secondary">
           Generate
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -114,10 +114,47 @@
         </button>
       </div>
       <div
-        class="container border border-black rounded p-2 d-flex justify-content-evenly bg-dark-subtle input-display"
+        id="display-head"
+        class="container border border-black rounded p-2 d-flex justify-content-evenly input-display"
       >
-        <h2 class="" id="key-display">Key:</h2>
-        <h2 class="" id="chord-display">Chord:</h2>
+        <h2 class="" id="key-display">
+          Key:
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-music-note"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2"
+            />
+            <path fill-rule="evenodd" d="M9 3v10H8V3z" />
+            <path
+              d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5z"
+            />
+          </svg>
+        </h2>
+        <h2 class="" id="chord-display">
+          Chord:
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-music-note"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2"
+            />
+            <path fill-rule="evenodd" d="M9 3v10H8V3z" />
+            <path
+              d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5z"
+            />
+          </svg>
+        </h2>
       </div>
       <p id="notes-display">
         <svg
@@ -135,8 +172,12 @@
           <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4z" />
         </svg>
       </p>
-      <!-- Div where the scores will be output -->
-      <div class="output" id="output"></div>
+      <div class="output-container">
+        <!-- Div where the scores will be output -->
+        <div class="output" id="output"></div>
+        <!-- Div where the tabs will be output -->
+        <div class="output2" id="output2"></div>
+      </div>
     </section>
     <!-- Load library -->
     <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>

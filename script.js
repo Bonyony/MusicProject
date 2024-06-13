@@ -71,6 +71,7 @@ generateBtn.addEventListener("click", (e) => {
 //reset the svg for a new chord
 const resetDisplay = () => {
   output.innerHTML = "";
+  output2.innerHTML = "";
 };
 
 // display the user inputs visually
@@ -81,6 +82,7 @@ const displayInputs = () => {
   notesDisplay.innerText = `Notes: ${chord.join("-")}`;
   showChord(readyChord);
   chordDisplay.innerText = prepareChordDisplay();
+  showTab();
 };
 
 /*
@@ -151,6 +153,8 @@ const prepareChordDisplay = () => {
 const {
   Renderer,
   Stave,
+  TabStave,
+  TabNote,
   KeySignature,
   Accidental,
   StaveNote,
@@ -193,4 +197,42 @@ const showChord = (userChord) => {
   voices.forEach(function (v) {
     v.draw(context, stave);
   });
+};
+
+/* Guitar Tab renderer and some logic */
+// section for Guitar Tabs, may need to be moved upwards in the code
+const showTab = () => {
+  const div2 = document.getElementById("output2");
+  const renderer2 = new Renderer(div2, Renderer.Backends.SVG);
+  // Configure the rendering context.
+  renderer2.resize(200, 250);
+  const context2 = renderer2.getContext();
+  // Create a tab stave of width 400 at position 10, 40 on the canvas.
+  const stave2 = new TabStave(10, 40, 175);
+  stave2.addClef("tab").setContext(context2).draw();
+
+  const notesTab = [
+    // A single note
+    new TabNote({
+      positions: [{ str: 3, fret: 7 }],
+      duration: "q",
+    }),
+
+    // A chord with the note on the 3rd string bent
+    new TabNote({
+      positions: [
+        { str: 2, fret: 10 },
+        { str: 3, fret: 9 },
+      ],
+      duration: "q",
+    }),
+
+    // A single note with a harsh vibrato
+    new TabNote({
+      positions: [{ str: 2, fret: 5 }],
+      duration: "h",
+    }),
+  ];
+
+  Formatter.FormatAndDraw(context2, stave2, notesTab);
 };

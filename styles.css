@@ -29,11 +29,33 @@ label select {
   justify-content: center;
 }
 
-.output {
-  display: grid;
+#display-head {
+  background: linear-gradient(
+    140deg,
+    rgb(211, 136, 236),
+    rgb(237, 206, 129),
+    rgb(210, 158, 227),
+    rgb(237, 206, 129)
+  );
+  background-size: 170%;
+  animation: animateKeyChord 14s infinite alternate;
+}
+
+@keyframes animateKeyChord {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.output-container {
+  display: flex;
   margin: auto;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 
 .chord-display {
