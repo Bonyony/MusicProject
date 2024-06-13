@@ -200,6 +200,7 @@ const showChord = (userChord) => {
 };
 
 /* Guitar Tab renderer and some logic */
+
 // section for Guitar Tabs, may need to be moved upwards in the code
 const showTab = () => {
   const div2 = document.getElementById("output2");
@@ -214,23 +215,26 @@ const showTab = () => {
   const notesTab = [
     // A single note
     new TabNote({
-      positions: [{ str: 3, fret: 7 }],
+      positions: [
+        { str: 1, fret: "G" },
+        { str: 2, fret: "U" },
+        { str: 3, fret: "I" },
+        { str: 4, fret: "T" },
+        { str: 5, fret: "A" },
+        { str: 6, fret: "R" },
+      ],
       duration: "q",
     }),
 
     // A chord with the note on the 3rd string bent
     new TabNote({
       positions: [
-        { str: 2, fret: 10 },
-        { str: 3, fret: 9 },
+        { str: 2, fret: "T" },
+        { str: 3, fret: "E" },
+        { str: 4, fret: "S" },
+        { str: 5, fret: "T" },
       ],
       duration: "q",
-    }),
-
-    // A single note with a harsh vibrato
-    new TabNote({
-      positions: [{ str: 2, fret: 5 }],
-      duration: "h",
     }),
   ];
 
