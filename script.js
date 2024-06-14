@@ -114,6 +114,7 @@ const chordDisplay = document.getElementById("chord-display");
 const notesDisplay = document.getElementById("notes-display");
 
 const output = document.getElementById("output");
+const output2 = document.getElementById("output2");
 
 const generateBtn = document.getElementById("generate-btn");
 generateBtn.addEventListener("click", (e) => {
@@ -134,7 +135,7 @@ const resetDisplay = () => {
 
 // display the user inputs visually
 const displayMajorInputs = () => {
-  keyDisplay.innerText = `Key: ${keyInput.value} Major`; // will need to be updated once Maj/Min selector is implemented
+  keyDisplay.innerText = `Key: ${keyInput.value} Major`;
   findNotes(majorScales);
   let readyChord = chord.map(octivize);
   notesDisplay.innerText = `Notes: ${chord.join("-")}`;
@@ -228,26 +229,31 @@ let chord;
 //destructure the notes into defined chords
 const findChord = (notes) => {
   let [one, two, three, four, five, six, seven] = notes;
-  if (scaleDegree.value == 1) {
-    chord = [one, three, five];
-  }
-  if (scaleDegree.value == 2) {
-    chord = [two, four, six];
-  }
-  if (scaleDegree.value == 3) {
-    chord = [three, five, seven];
-  }
-  if (scaleDegree.value == 4) {
-    chord = [four, six, one];
-  }
-  if (scaleDegree.value == 5) {
-    chord = [five, seven, two];
-  }
-  if (scaleDegree.value == 6) {
-    chord = [six, one, three];
-  }
-  if (scaleDegree.value == 7) {
-    chord = [seven, two, four];
+  switch (Number(scaleDegree.value)) {
+    case 1:
+      chord = [one, three, five];
+      break;
+    case 2:
+      chord = [two, four, six];
+      break;
+    case 3:
+      chord = [three, five, seven];
+      break;
+    case 4:
+      chord = [four, six, one];
+      break;
+    case 5:
+      chord = [five, seven, two];
+      break;
+    case 6:
+      chord = [six, one, three];
+      break;
+    case 7:
+      chord = [seven, two, four];
+      break;
+
+    default:
+      break;
   }
   console.log(chord);
 };
@@ -263,6 +269,7 @@ const prepareMajorChordDisplay = () => {
   } else {
     sig = "Diminished";
   }
+
   return `Chord: ${chord[0]} ${sig}`;
 };
 
