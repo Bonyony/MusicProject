@@ -47,7 +47,6 @@
         </div>
       </div>
     </nav>
-
     <!-- User Interactions (Buttons) -->
     <section class="chord-display">
       <h1>Choose a Chord to display!</h1>
@@ -74,6 +73,19 @@
             <option value="Ab">G#/Ab</option>
           </select>
         </div>
+        <div class="major-minor-container">
+          <label for="majMinInput">Major/Minor: </label>
+          <select
+            name="majMinInput"
+            id="majMinInput"
+            class="form-select"
+            aria-label="Major Minor selections"
+          >
+            <option selected value="major">Major</option>
+            <option value="minor">Minor</option>
+          </select>
+        </div>
+
         <div class="degree-container">
           <label for="scaleDegree">Select Scale Degree: </label>
           <select
@@ -179,6 +191,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
 
     <script src="script.js"></script>
+    <script src="scales.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

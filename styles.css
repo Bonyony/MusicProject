@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+/* Main App */
 label select {
   display: flex;
   flex-direction: column;
@@ -20,6 +25,10 @@ label select {
 
 .btn {
   margin: auto 2.5px;
+}
+
+.major-minor-container {
+  margin: 0 5px;
 }
 
 .input-display {

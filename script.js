@@ -1,3 +1,5 @@
+//import { majorScales, minorScales } from "./scales";
+
 //Array of keys and the notes of their major scales
 const majorScales = [
   {
@@ -50,9 +52,63 @@ const majorScales = [
   },
 ];
 
-// Inputs and displays
+//Array of minor scales
+const minorScales = [
+  {
+    key: "Am", //
+    scaleNotes: ["A", "B", "C", "D", "E", "F", "G"],
+  },
+  {
+    key: "Bbm", //
+    scaleNotes: ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab"],
+  },
+  {
+    key: "Bm", //
+    scaleNotes: ["B", "C#", "D", "E", "F#", "G", "A"],
+  },
+  {
+    key: "Cm", //
+    scaleNotes: ["C", "D", "Eb", "F", "G", "Ab", "Bb"],
+  },
+  {
+    key: "C#m", //
+    scaleNotes: ["C#", "D#", "E", "F#", "G#", "A", "B"],
+  },
+  {
+    key: "Dm", //
+    scaleNotes: ["D", "E", "F", "G", "A", "Bb", "C"],
+  },
+  {
+    key: "Ebm", //
+    scaleNotes: ["Eb", "F", "Gb", "Ab", "Bb", "Cb", "Db"],
+  },
+  {
+    key: "Em", //
+    scaleNotes: ["E", "F#", "G", "A", "B", "C", "D"],
+  },
+  {
+    key: "Fm", //
+    scaleNotes: ["F", "G", "Ab", "Bb", "C", "Db", "Eb"],
+  },
+  {
+    key: "F#m", //
+    scaleNotes: ["F#", "G#", "A", "B", "C#", "D", "E"],
+  },
+  {
+    key: "Gm", //
+    scaleNotes: ["G", "A", "Bb", "C", "D", "Eb", "F"],
+  },
+  {
+    key: "G#m", //
+    scaleNotes: ["G#", "A#", "B", "C#", "D#", "E", "F#"],
+  },
+];
+
+// Inputs
 const keyInput = document.getElementById("keyInput");
+const majMinInput = document.getElementById("majMinInput");
 const scaleDegree = document.getElementById("scaleDegree");
+// Displays
 const keyDisplay = document.getElementById("key-display");
 const chordDisplay = document.getElementById("chord-display");
 const notesDisplay = document.getElementById("notes-display");
@@ -63,9 +119,11 @@ const generateBtn = document.getElementById("generate-btn");
 generateBtn.addEventListener("click", (e) => {
   e.preventDefault();
   resetDisplay();
-  displayInputs();
   console.log(keyInput.value);
+  console.log(majMinInput.value);
   console.log(scaleDegree.value);
+
+  displayInputs();
 });
 
 //reset the svg for a new chord
