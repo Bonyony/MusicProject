@@ -58,20 +58,20 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              This application takes in (currently) two parameters: the
-              <strong>Key</strong> and the <strong>Scale Degree</strong>. There
-              are 12 <strong>Keys</strong> in western music. One for every note
-              of an octave (C, C#, D, etc.). Currently, each
-              <strong>Key</strong> is Major. Within the major and minor scales
-              of western music there are seven notes. These can be though of as
-              <strong>Scale Degrees</strong>. These
+              This application takes in (currently) three parameters: the
+              <strong>Key</strong>, if it is <strong>Major</strong> or
+              <strong>Minor</strong>, and the <strong>Scale Degree</strong>.
+              There are 12 <strong>Keys</strong> in western music. One for every
+              note of an octave (C, C#, D, etc.). Within the major and minor
+              scales of western music there are seven notes. These can be though
+              of as <strong>Scale Degrees</strong>. These
               <strong>Scale Degrees</strong>
               can be used to construct chords within the key, and all will fit
               together nicely when played as part of a chord progression. For
-              example: the 1st chord of a major scale can be constructed by
-              combining the 1st, 3rd and 5th degrees of the scale together to
-              form a chord. In the <strong>Key</strong> of A Major, that will be
-              the chord A Major. <br /><br />
+              example: the 1st chord of a scale can be constructed by combining
+              the 1st, 3rd and 5th degrees of the scale together to form a
+              chord. In the <strong>Key</strong> of A Major, that will be the
+              chord A Major. <br /><br />
               For more information on music theory
               <a href="https://www.musictheory.net/lessons" target="_blank"
                 >this link</a
@@ -102,7 +102,8 @@
               While the note <strong>Cb/B#</strong> may seem nonsensicle to many
               it is indeed used, as is <strong>Fb/E#</strong>, for certain key
               signatures. In my application it will only show up for the key of
-              <strong>F#/Gb</strong>. <br /><br />
+              <strong>F#/Gb</strong>. This is partly due to the limitations of
+              the <strong>VexFlow.js</strong> library. <br /><br />
               <a
                 href="https://en.wikipedia.org/wiki/G-flat_major"
                 target="_blank"
