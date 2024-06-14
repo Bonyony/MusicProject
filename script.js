@@ -123,7 +123,7 @@ generateBtn.addEventListener("click", (e) => {
   console.log(majMinInput.value);
   console.log(scaleDegree.value);
 
-  displayInputs();
+  majMinInput.value === "major" ? displayMajorInputs() : displayMinorInputs();
 });
 
 //reset the svg for a new chord
@@ -133,14 +133,74 @@ const resetDisplay = () => {
 };
 
 // display the user inputs visually
-const displayInputs = () => {
+const displayMajorInputs = () => {
   keyDisplay.innerText = `Key: ${keyInput.value} Major`; // will need to be updated once Maj/Min selector is implemented
   findNotes(majorScales);
   let readyChord = chord.map(octivize);
   notesDisplay.innerText = `Notes: ${chord.join("-")}`;
   showChord(readyChord);
-  chordDisplay.innerText = prepareChordDisplay();
+  chordDisplay.innerText = prepareMajorChordDisplay();
   showTab();
+};
+
+const displayMinorInputs = () => {
+  console.log("miner minor");
+  updateKeyInputs();
+  keyDisplay.innerText = `Key: ${keyInput.value} Minor`;
+  findNotes(minorScales);
+  readyChord = chord.map(octivize);
+  notesDisplay.innerText = `Notes: ${chord.join("-")}`;
+  showChord(readyChord);
+  chordDisplay.innerText = prepareMinorChordDisplay();
+  showTab();
+};
+
+// Switch the keyInput value to a minor version
+let keyHolder;
+const updateKeyInputs = () => {
+  switch (keyInput.value) {
+    case "A":
+      keyHolder = "Am";
+      break;
+    case "Bb":
+      keyHolder = "Bbm";
+      break;
+    case "B":
+      keyHolder = "Bm";
+      break;
+    case "C":
+      keyHolder = "Cm";
+      break;
+    case "Db":
+      keyHolder = "C#m";
+      break;
+    case "D":
+      keyHolder = "Dm";
+      break;
+    case "Eb":
+      keyHolder = "Ebm";
+      break;
+    case "E":
+      keyHolder = "Em";
+      break;
+    case "F":
+      keyHolder = "Fm";
+      break;
+    case "Gb":
+      keyHolder = "F#m";
+      break;
+    case "G":
+      keyHolder = "Gm";
+      break;
+    case "Ab":
+      keyHolder = "G#m";
+      break;
+
+    default:
+      break;
+  }
+  console.log(keyHolder);
+  return keyHolder;
 };
 
 /*
@@ -156,7 +216,7 @@ const octivize = (el) => {
 const findNotes = (scale) => {
   let userScale;
   for (let i = 0; i <= 11; i++) {
-    if (scale[i].key === keyInput.value) {
+    if (scale[i].key === keyInput.value || scale[i].key === keyHolder) {
       userScale = scale[i].scaleNotes;
     }
   }
@@ -193,13 +253,26 @@ const findChord = (notes) => {
 };
 
 // chord display function
-const prepareChordDisplay = () => {
+const prepareMajorChordDisplay = () => {
   let holder = Number(scaleDegree.value);
   let sig;
   if (holder === 1 || holder === 4 || holder === 5) {
     sig = "Major";
   } else if (holder === 2 || holder === 3 || holder === 6) {
     sig = "Minor";
+  } else {
+    sig = "Diminished";
+  }
+  return `Chord: ${chord[0]} ${sig}`;
+};
+
+const prepareMinorChordDisplay = () => {
+  let holder = Number(scaleDegree.value);
+  let sig;
+  if (holder === 1 || holder === 4 || holder === 5) {
+    sig = "Minor";
+  } else if (holder === 3 || holder === 6 || holder === 7) {
+    sig = "Major";
   } else {
     sig = "Diminished";
   }
@@ -232,7 +305,11 @@ const showChord = (userChord) => {
   // Create a stave of width 400 at position 10, 40 on the canvas.
   const stave = new Stave(10, 40, 175);
   // Add a clef and time signature.
-  stave.addClef("treble").addKeySignature(keyInput.value);
+  stave
+    .addClef("treble")
+    .addKeySignature(
+      majMinInput.value === "major" ? keyInput.value : keyHolder
+    );
   // Connect it to the rendering context and draw!
   stave.setContext(context).draw();
   // Create the notes
