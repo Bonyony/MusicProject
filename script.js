@@ -1,5 +1,3 @@
-//import { majorScales, minorScales } from "./scales";
-
 //Array of keys and the notes of their major scales
 const majorScales = [
   {
@@ -214,8 +212,8 @@ const octivize = (el) => {
 };
 
 // match the input value to the proper scale key
+let userScale;
 const findNotes = (scale) => {
-  let userScale;
   for (let i = 0; i <= 11; i++) {
     if (scale[i].key === keyInput.value || scale[i].key === keyHolder) {
       userScale = scale[i].scaleNotes;
@@ -344,41 +342,42 @@ const showChord = (userChord) => {
 /* Guitar Tab renderer and some logic */
 
 // section for Guitar Tabs, may need to be moved upwards in the code
-const showTab = () => {
-  const div2 = document.getElementById("output2");
-  const renderer2 = new Renderer(div2, Renderer.Backends.SVG);
-  // Configure the rendering context.
-  renderer2.resize(200, 250);
-  const context2 = renderer2.getContext();
-  // Create a tab stave of width 400 at position 10, 40 on the canvas.
-  const stave2 = new TabStave(10, 40, 175);
-  stave2.addClef("tab").setContext(context2).draw();
+// unused for production right now
+// const showTab = () => {
+//   const div2 = document.getElementById("output2");
+//   const renderer2 = new Renderer(div2, Renderer.Backends.SVG);
+//   // Configure the rendering context.
+//   renderer2.resize(200, 250);
+//   const context2 = renderer2.getContext();
+//   // Create a tab stave of width 400 at position 10, 40 on the canvas.
+//   const stave2 = new TabStave(10, 40, 175);
+//   stave2.addClef("tab").setContext(context2).draw();
 
-  const notesTab = [
-    // A single note
-    new TabNote({
-      positions: [
-        { str: 1, fret: "G" },
-        { str: 2, fret: "U" },
-        { str: 3, fret: "I" },
-        { str: 4, fret: "T" },
-        { str: 5, fret: "A" },
-        { str: 6, fret: "R" },
-      ],
-      duration: "q",
-    }),
+//   const notesTab = [
+//     // A single note
+//     new TabNote({
+//       positions: [
+//         { str: 1, fret: "G" },
+//         { str: 2, fret: "U" },
+//         { str: 3, fret: "I" },
+//         { str: 4, fret: "T" },
+//         { str: 5, fret: "A" },
+//         { str: 6, fret: "R" },
+//       ],
+//       duration: "q",
+//     }),
 
-    // A chord with the note on the 3rd string bent
-    new TabNote({
-      positions: [
-        { str: 2, fret: "T" },
-        { str: 3, fret: "E" },
-        { str: 4, fret: "S" },
-        { str: 5, fret: "T" },
-      ],
-      duration: "q",
-    }),
-  ];
+//     // A chord with the note on the 3rd string bent
+//     new TabNote({
+//       positions: [
+//         { str: 2, fret: "T" },
+//         { str: 3, fret: "E" },
+//         { str: 4, fret: "S" },
+//         { str: 5, fret: "T" },
+//       ],
+//       duration: "q",
+//     }),
+//   ];
 
-  Formatter.FormatAndDraw(context2, stave2, notesTab);
-};
+//   Formatter.FormatAndDraw(context2, stave2, notesTab);
+// };

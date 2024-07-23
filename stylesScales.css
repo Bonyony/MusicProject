@@ -10,24 +10,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Navbar */
-.navflex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.linkflex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.lastlink {
-  margin-right: 16px;
-}
-
 /* Main App */
 label select {
   display: flex;
@@ -59,10 +41,10 @@ label select {
 #display-head {
   background: linear-gradient(
     140deg,
-    rgb(211, 136, 236),
-    rgb(237, 206, 129),
-    rgb(210, 158, 227),
-    rgb(237, 206, 129)
+    rgb(136, 171, 236),
+    rgb(237, 129, 167),
+    rgb(158, 201, 227),
+    rgb(237, 129, 167)
   );
   background-size: 170%;
   animation: animateKeyChord 14s infinite alternate;
@@ -107,9 +89,9 @@ label select {
   border: black 1px solid;
 }
 
-#notes-display {
+/* #notes-display {
   filter: drop-shadow(3px 3px #000000);
-}
+} */
 
 /* features.html styles */
 .features {
