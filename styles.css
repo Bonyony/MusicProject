@@ -17,6 +17,11 @@ body {
   justify-content: space-between;
 }
 
+.app-name {
+  margin-left: 16px;
+  font-weight: 800;
+}
+
 .linkflex {
   display: flex;
   flex-direction: row;
