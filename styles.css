@@ -8,6 +8,25 @@
 
 body {
   overflow-x: hidden;
+  /* height: 100vh;
+  display: flex;
+  flex-direction: column; */
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem; /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5rem; /* Footer height */
 }
 
 /* Navbar */
@@ -33,6 +52,14 @@ body {
   margin-right: 16px;
 }
 
+@media (max-width: 460px) {
+  .navflex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
 /* Main App */
 label select {
   display: flex;
@@ -44,6 +71,12 @@ label select {
   margin: auto;
   flex-direction: row;
   justify-content: center;
+}
+
+@media (max-width: 400px) {
+  .btn-container {
+    font-size: 0.8rem;
+  }
 }
 
 .btn {
@@ -119,5 +152,45 @@ label select {
 /* features.html styles */
 .features {
   margin: 25px auto;
-  width: 60%;
+  margin-bottom: 25px;
+  width: 70%;
+}
+
+/* features responsive */
+@media (max-width: 900px) {
+  .features {
+    margin: 15px auto;
+    margin-bottom: 25px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 460px) {
+  .features {
+    margin: 10px auto;
+    margin-bottom: 25px;
+    width: 90%;
+  }
+}
+
+/* Footer */
+
+.footer {
+  /* position: fixed;
+  bottom: 0; */
+  width: 100%;
+  /* background: ghostwhite; */
+}
+
+.foot-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.nav-link {
+  color: gray;
+}
+
+.nav-link:hover {
+  color: rgb(248, 189, 40);
 }

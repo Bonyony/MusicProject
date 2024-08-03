@@ -15,137 +15,163 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navflex">
-      <a
-        class="navbar-brand app-name"
-        href="https://github.com/Bonyony"
-        target="_blank"
-        >Chord Generator</a
-      >
+    <div id="page-container">
+      <div id="content-wrap">
+        <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navflex">
+          <a
+            class="navbar-brand app-name"
+            href="https://github.com/Bonyony"
+            target="_blank"
+            >Chord Generator</a
+          >
 
-      <div class="navbar-nav linkflex">
-        <a class="nav-link" aria-current="page" href="index.html">Chords</a>
-        <!-- <a class="nav-link" aria-current="page" href="scales.html"
+          <div class="navbar-nav linkflex">
+            <a class="nav-link" aria-current="page" href="index.html">Chords</a>
+            <!-- <a class="nav-link" aria-current="page" href="scales.html"
               >Scales</a
             > -->
-        <a class="nav-link active" href="features.html">Features</a>
-        <a
-          class="nav-link lastlink"
-          href="https://whale-app-jtcaf.ondigitalocean.app/"
-          target="_blank"
-          >Contact Me</a
-        >
-      </div>
-    </nav>
-    <!-- Info Accordian -->
-    <section class="features">
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
+            <a class="nav-link active" href="features.html">Features</a>
+            <a
+              class="nav-link lastlink"
+              href="https://whale-app-jtcaf.ondigitalocean.app/"
+              target="_blank"
+              >Contact Me</a
             >
-              What does this application do?
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            class="accordion-collapse collapse show"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              This application takes in (currently) three parameters: the
-              <strong>Key</strong>, if it is <strong>Major</strong> or
-              <strong>Minor</strong>, and the <strong>Scale Degree</strong>.
-              There are 12 <strong>Keys</strong> in western music. One for every
-              note of an octave (C, C#, D, etc.). Within the major and minor
-              scales of western music there are seven notes. These can be though
-              of as <strong>Scale Degrees</strong>. These
-              <strong>Scale Degrees</strong>
-              can be used to construct chords within the key, and all will fit
-              together nicely when played as part of a chord progression. For
-              example: the 1st chord of a scale can be constructed by combining
-              the 1st, 3rd and 5th degrees of the scale together to form a
-              chord. In the <strong>Key</strong> of A Major, that will be the
-              chord A Major. <br /><br />
-              For more information on music theory
-              <a href="https://www.musictheory.net/lessons" target="_blank"
-                >this link</a
+          </div>
+        </nav>
+        <!-- Info Accordian -->
+        <section class="features">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  What does this application do?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
               >
-              will provide valuable context!
+                <div class="accordion-body">
+                  This application takes in (currently) three parameters: the
+                  <strong>Key</strong>, if it is <strong>Major</strong> or
+                  <strong>Minor</strong>, and the <strong>Scale Degree</strong>.
+                  There are 12 <strong>Keys</strong> in western music. One for
+                  every note of an octave (C, C#, D, etc.). Within the major and
+                  minor scales of western music there are seven notes. These can
+                  be though of as <strong>Scale Degrees</strong>. These
+                  <strong>Scale Degrees</strong>
+                  can be used to construct chords within the key, and all will
+                  fit together nicely when played as part of a chord
+                  progression. For example: the 1st chord of a scale can be
+                  constructed by combining the 1st, 3rd and 5th degrees of the
+                  scale together to form a chord. In the <strong>Key</strong> of
+                  A Major, that will be the chord A Major. <br /><br />
+                  For more information on music theory
+                  <a href="https://www.musictheory.net/lessons" target="_blank"
+                    >this link</a
+                  >
+                  will provide valuable context!
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Why does the note Cb/B# appear in some scales?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  While the note <strong>Cb/B#</strong> may seem nonsensicle to
+                  many it is indeed used, as is <strong>Fb/E#</strong>, for
+                  certain key signatures. In my application it will only show up
+                  for the key of <strong>F#/Gb</strong>. This is partly due to
+                  the limitations of the <strong>VexFlow.js</strong> library.
+                  <br /><br />
+                  <a
+                    href="https://en.wikipedia.org/wiki/G-flat_major"
+                    target="_blank"
+                    >This page</a
+                  >
+                  will give an example and some background information.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  What will be added next?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  The next things (possibly) to add are:
+                  <ol>
+                    <li>Guitar Tab functionality</li>
+                    <li>Arpeggiating the Chords</li>
+                    <li>Saving the user's Chords</li>
+                    <li>Creating custom Chords</li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              Why does the note Cb/B# appear in some scales?
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              While the note <strong>Cb/B#</strong> may seem nonsensicle to many
-              it is indeed used, as is <strong>Fb/E#</strong>, for certain key
-              signatures. In my application it will only show up for the key of
-              <strong>F#/Gb</strong>. This is partly due to the limitations of
-              the <strong>VexFlow.js</strong> library. <br /><br />
+        </section>
+      </div>
+      <section>
+        <footer id="footer" class="py-3 mt-4 footer">
+          <p class="text-center p-2 foot-text">Music is for everyone.</p>
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link px-2">Chords</a>
+            </li>
+            <li class="nav-item">
+              <a href="features.html" class="nav-link px-2">Features</a>
+            </li>
+            <li class="nav-item">
               <a
-                href="https://en.wikipedia.org/wiki/G-flat_major"
+                href="https://frankfrancione.com/"
                 target="_blank"
-                >This page</a
+                class="nav-link px-2"
+                >Contact Me</a
               >
-              will give an example and some background information.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
-            >
-              What will be added next?
-            </button>
-          </h2>
-          <div
-            id="collapseThree"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              The next things (possibly) to add are:
-              <ol>
-                <li>Guitar Tab functionality</li>
-                <li>Arpeggiating the Chords</li>
-                <li>Saving the user's Chords</li>
-                <li>Creating custom Chords</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </li>
+          </ul>
+        </footer>
+      </section>
+    </div>
     <!-- Load library -->
     <script src="script.js"></script>
     <script
