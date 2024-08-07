@@ -1,0 +1,12 @@
+{
+  "name": "musicproject",
+  "version": "1.0.0",
+  "description": "This is a music notation project that utilizes the VexFlow.js library to display staves and tablature for user inputs.",
+  "main": "scales.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
