@@ -254,14 +254,14 @@ const showScale = (userScale) => {
   const notes = [
     new StaveNote({
       keys: userScale,
-      duration: "w",
+      duration: "q",
     }),
   ];
   // Create a voice and add above notes
   const voices = [
     new Voice({
-      num_beats: 1,
-      beat_value: 1,
+      num_beats: 4,
+      beat_value: 4,
     }).addTickables(notes),
   ];
   // Format and justify the notes to 400 pixels.
