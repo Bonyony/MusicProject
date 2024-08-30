@@ -129,9 +129,14 @@ const resetDisplay = () => {
 // display the user inputs visually
 const displayMajorInputs = () => {
   findNotes(majorScales);
-  let readyScale = userScale.map(octivize);
+  let readyScale = userScale.map(function (el, index) {
+    let newEl = index < 7 ? el + "/4" : el + "/5";
+    console.log(el);
+    return newEl;
+  });
   notesDisplay.innerText = `Notes: ${userScale.join(" - ")}`;
   showScale(readyScale);
+  console.log(readyScale);
   //   chordDisplay.innerText = prepareMajorChordDisplay();
   //   showTab();
 };
@@ -146,6 +151,13 @@ const displayMinorInputs = () => {
   //   chordDisplay.innerText = prepareMinorChordDisplay();
   //   showTab();
 };
+
+/*
+ function to prepare the chord for the SVG view, may need to be changed
+ as this only returns notes within the same octave, and I may want the octaves to 
+ be reactive and climb or fall +/- one octave in the future
+*/
+const octivize = (el) => {};
 
 // Switch the keyInput value to a minor version
 let keyHolder;
@@ -195,15 +207,6 @@ const updateKeyInputs = () => {
   return keyHolder;
 };
 
-/*
- function to prepare the chord for the SVG view, may need to be changed
- as this only returns notes within the same octave, and I may want the octaves to 
- be reactive and climb or fall +/- one octave in the future
-*/
-const octivize = (el) => {
-  return el + "/4";
-};
-
 // match the input value to the proper scale key
 let userScale;
 const findNotes = (scale) => {
@@ -213,7 +216,6 @@ const findNotes = (scale) => {
     }
   }
   console.log(userScale);
-  //findChord(userScale);
 };
 
 // Destructure from VexFlow
@@ -239,7 +241,7 @@ const showScale = (userScale) => {
   renderer.resize(200, 200);
   const context = renderer.getContext();
   // Create a stave of width 400 at position 10, 40 on the canvas.
-  const stave = new Stave(10, 40, 175);
+  const stave = new Stave(10, 40, 500);
   // Add a clef and time signature.
   stave
     .addClef("treble")
